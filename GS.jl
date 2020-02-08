@@ -22,7 +22,7 @@ function gibbs(μ_1::Real, σ_1::Real, μ_2::Real, σ_2::Real, ρ::Real, Y2_ini:
     # -------------
     μ_12 = μ_1 + ρ * (σ_1/σ_2) * (Y2_ini - μ_2)
     σ_12 = σ_1 * sqrt(1-ρ^2)
-    d_12 = Normal(μ_12, sqrt(σ_12))
+    d_12 = Normal(μ_12, σ_12)
 
     # -------------------------
     # 2. Drawing from Y1 | Y2
@@ -34,7 +34,7 @@ function gibbs(μ_1::Real, σ_1::Real, μ_2::Real, σ_2::Real, ρ::Real, Y2_ini:
     # ------------
     μ_21 = μ_2 + ρ * (σ_2/σ_1) * (Y1 - μ_1)
     σ_21 = σ_2 * sqrt(1-ρ^2)
-    d_21 = Normal(μ_21, sqrt(σ_21))
+    d_21 = Normal(μ_21, σ_21)
 
     # ------------------------
     # 4. Drawing from Y2 | Y1

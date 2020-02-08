@@ -33,7 +33,7 @@ N_run = 50                      # Number of runs
 
 # Variance-covariance matrix
 σ_1 = 1                         # Standard deviation of Y1
-σ_2 = 1                         # Standard deviation of T2
+σ_2 = 1                         # Standard deviation of Y2
 ρ = collect(-0.95:0.1:0.95)     # Correlation coefficient
 
 
@@ -55,6 +55,9 @@ mY2Mean = similar(mY1Mean)
 mY2Bias = similar(mY1BiasSq)
 mY2Var = similar(mY1Var)
 mY2RMSE = similar(mY1RMSE)
+
+# For deterministic (repicable) results
+Random.seed!(123)
 
 for iAlternative in 1:nAlternatives
 
@@ -118,7 +121,7 @@ savefig(pVariance, "/Users/Castesil/Documents/EUI/Year II - PENN/Spring 2020/Eco
 
 
 # RMSE
-pRMSE = plot(ρ, mean(mY1RMSE, dims=1)', xlabel=L"\rho", marker=:o, label=L"Y_1")
+pRMSE = plot(ρ, mean(mY1RMSE, dims=1)', xlabel=L"\rho", marker=:o, label=L"Y_1", legend=:bottomleft)
 plot!(ρ, mean(mY2RMSE, dims=1)', marker=:o, label=L"Y_2")
 
 savefig(pRMSE, "/Users/Castesil/Documents/EUI/Year II - PENN/Spring 2020/Econometrics IV/PS/PS2/LaTeX/pRMSE.pdf")
