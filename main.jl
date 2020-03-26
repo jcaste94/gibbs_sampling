@@ -52,7 +52,7 @@ mY1RMSE = zeros(N_run, nAlternatives)
 
 tY2 = similar(tY1)
 mY2Mean = similar(mY1Mean)
-mY2Bias = similar(mY1BiasSq)
+mY2Bias = similar(mY1Bias)
 mY2Var = similar(mY1Var)
 mY2RMSE = similar(mY1RMSE)
 
@@ -110,18 +110,18 @@ end
 pBias = plot(ρ, mean(mY1Bias, dims=1)', xlabel=L"\rho", marker=:o, label=L"Y_1")
 plot!(ρ, mean(mY2Bias, dims=1)', marker=:o, label=L"Y_2")
 
-savefig(pBias, "/Users/Castesil/Documents/EUI/Year II - PENN/Spring 2020/Econometrics IV/PS/PS2/LaTeX/pBias.pdf")
+savefig(pBias, "/Users/Castesil/Documents/EUI/Year II - PENN/Spring 2020/Econometrics IV - Part I/PS/PS2/LaTeX/pBias.pdf")
 
 
 # Variance
-pVariance = plot(ρ, mean(mY1Var, dims=1)', xlabel=L"\rho", marker=:o, label=L"Y_1")
+pVariance = plot(ρ, mean(mY1Var, dims=1)', xlabel=L"\rho", marker=:o, label=L"Y_1", legend=:bottomright)
 plot!(ρ, mean(mY2Var, dims=1)', marker=:o, label=L"Y_2")
 
-savefig(pVariance, "/Users/Castesil/Documents/EUI/Year II - PENN/Spring 2020/Econometrics IV/PS/PS2/LaTeX/pVariance.pdf")
+savefig(pVariance, "/Users/Castesil/Documents/EUI/Year II - PENN/Spring 2020/Econometrics IV - Part I/PS/PS2/LaTeX/pVariance.pdf")
 
 
 # RMSE
-pRMSE = plot(ρ, mean(mY1RMSE, dims=1)', xlabel=L"\rho", marker=:o, label=L"Y_1", legend=:bottomleft)
+pRMSE = plot(ρ, mean(mY1RMSE, dims=1)', xlabel=L"\rho", marker=:o, label=L"Y_1", legend=:topright)
 plot!(ρ, mean(mY2RMSE, dims=1)', marker=:o, label=L"Y_2")
 
-savefig(pRMSE, "/Users/Castesil/Documents/EUI/Year II - PENN/Spring 2020/Econometrics IV/PS/PS2/LaTeX/pRMSE.pdf")
+savefig(pRMSE, "/Users/Castesil/Documents/EUI/Year II - PENN/Spring 2020/Econometrics IV - Part I/PS/PS2/LaTeX/pRMSE.pdf")
